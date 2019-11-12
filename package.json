@@ -1,0 +1,34 @@
+{
+  "name": "nodris",
+  "version": "1.0.0",
+  "description": "ALLRIS wrapper for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t3r/nodris.git"
+  },
+  "keywords": [
+    "allris",
+    "node"
+  ],
+  "author": "Torsten Dreyer",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/t3r/nodris/issues"
+  },
+  "homepage": "https://github.com/t3r/nodris#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "got": "^9.6.0",
+    "icalendar": "^0.7.1",
+    "moment-timezone": "^0.5.27"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-arrays": "^2.0.0",
+    "mocha": "^5.2.0"
+  }
+}
