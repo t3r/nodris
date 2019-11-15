@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 const got = require('got');
 const iCal = require('icalendar');
 const cheerio = require('cheerio'); const moment = require('moment-timezone');
+const querystring = require('querystring');
 
 const TWEET_PREFIX = process.env.TWEET_PREFIX || 'Sitzung #Wentorf: ';
 
@@ -86,6 +87,12 @@ Nodris.prototype.getAgenda = function( options ) {
   .then( response => {
     const $ = cheerio.load(response.body);
     const reply = []
+
+    // fetch the link to the Ausschuss
+    const $committee = $('td.kb1:contains("Gremium:")').siblings('td');
+    reply.committeeId  = querystring.parse($committee.children('a').attr('href')).AULFDNR;
+    reply.committee = $committee.text();
+
     const t = $("table.tl1 tr").each( (idx,element)=> {
       if( idx < 2 ) return;
       const td = $(element).children("td");
