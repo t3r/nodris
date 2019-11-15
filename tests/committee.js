@@ -18,10 +18,21 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-describe('All Tests', function() {
-  describe('test allris', require('./getagenda'));
-  describe('test twitter', require('./tweets'));
-  describe('test people', require('./people'));
-  describe('test committee', require('./committee'));
-})
+const chai = require('chai');
+const expect = require('chai').expect;
+const assertArrays = require('chai-arrays');
+chai.use(assertArrays);
+
+module.exports = function() {
+  const Nodris = require('../index').Nodris;
+
+  it('should fetch a committee(44) by number', async function() {
+    const sut = new Nodris('https://www.wentorf.sitzung-online.com/bi');
+    let committee = await sut.getCommittee({ committeeId: 44 });
+    console.log(committee);
+    return Promise.resolve();
+  });
+}
+
+
 

@@ -27,6 +27,7 @@ const TWEET_PREFIX = process.env.TWEET_PREFIX || 'Sitzung #Wentorf: ';
 const NodrisCalendarEntry = require('./NodrisCalendarEntry.js');
 const NodrisAgendaEntry = require('./NodrisAgendaEntry.js');
 const NodrisPerson = require('./NodrisPerson.js');
+const NodrisCommittee = require('./NodrisCommittee.js');
 
 class Nodris {
   constructor( baseUrl ) {
@@ -157,6 +158,27 @@ Nodris.prototype.getPerson = function( options ) {
       allrisId: options.kpLfdNr,
       details: reply,
     }
+  })
+}
+
+Nodris.prototype.getCommittee = function( options ) {
+  const query = new URLSearchParams([
+    ['AULFDNR', options.committeeId  ],
+  ]);
+
+  const reply = new NodrisCommittee( options.committeeId );
+
+  return got('au020.asp', {
+    baseUrl: this.baseUrl,
+    encoding: 'latin1',
+    query
+  })
+  .then( response => {
+    const $ = cheerio.load(response.body);
+    $('table.tl1').find('input[name="KPLFDNR"]').each( (idx,element)=> {
+      reply.addMemberId($(element).attr('value'));
+    });
+    return reply;
   })
 }
 

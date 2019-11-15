@@ -1,6 +1,6 @@
-'use strict'
+'use strict;';
 /*
-This file is part of nodris - a ALLRIS to Node.js bridge
+This file is part of twillris - a ALLRIS to Twitter bridge
 Copyright (C) 2019 Torsten Dreyer - torsten (at) t3r (dot) de
 
 This program is free software; you can redistribute it and/or modify
@@ -18,10 +18,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-describe('All Tests', function() {
-  describe('test allris', require('./getagenda'));
-  describe('test twitter', require('./tweets'));
-  describe('test people', require('./people'));
-  describe('test committee', require('./committee'));
-})
+class NodrisCommittee {
+  constructor( id ) {
+    this.committeeId = id;
+    this.members = [];
+  }
 
+  addMemberId( id ) {
+    this.members.push( Number(id) );
+  }
+
+  hasMember( id ) {
+    return this.members.indexOf( Number(id) ) >= 0;
+  }
+}
+
+module.exports = NodrisCommittee;
