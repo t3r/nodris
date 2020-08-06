@@ -39,10 +39,10 @@ class NodrisCalendarEntry {
 
   static fromVevent( vevent ) {
     return new NodrisCalendarEntry(
-      vevent.properties.DTSTART[0].value,
-      vevent.properties.SUMMARY[0].value,
-      vevent.properties.DESCRIPTION[0].value,
-      vevent.properties.LOCATION[0].value );
+      vevent.properties.DTSTART ? vevent.properties.DTSTART[0].value : '',
+      vevent.properties.SUMMARY ? vevent.properties.SUMMARY[0].value : '',
+      vevent.properties.DESCRIPTION ? vevent.properties.DESCRIPTION[0].value : '',
+      vevent.properties.LOCATION ? vevent.properties.LOCATION[0].value : '' );
   }
 
 }

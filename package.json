@@ -1,6 +1,6 @@
 {
   "name": "nodris",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ALLRIS wrapper for node.js",
   "main": "index.js",
   "scripts": {
@@ -24,11 +24,11 @@
     "cheerio": "^1.0.0-rc.3",
     "got": "^9.6.0",
     "icalendar": "^0.7.1",
-    "moment-timezone": "^0.5.27"
+    "moment-timezone": "^0.5.31"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-arrays": "^2.0.0",
+    "chai-arrays": "^2.2.0",
     "mocha": "^5.2.0"
   }
 }
