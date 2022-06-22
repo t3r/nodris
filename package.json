@@ -22,7 +22,7 @@
   "homepage": "https://github.com/t3r/nodris#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "icalendar": "^0.7.1",
     "moment-timezone": "^0.5.31"
   },
