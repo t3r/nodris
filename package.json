@@ -24,7 +24,7 @@
     "cheerio": "^1.0.0-rc.3",
     "got": "^9.6.0",
     "icalendar": "^0.7.1",
-    "moment-timezone": "^0.5.31"
+    "moment-timezone": "^0.5.35"
   },
   "devDependencies": {
     "chai": "^4.2.0",
